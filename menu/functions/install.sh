@@ -156,23 +156,6 @@ docstart() {
   ansible-playbook /opt/plexguide/menu/pg.yml --tags docstart
 }
 
-emergency() {
-  variable /var/plexguide/emergency.display "On"
-  if [[ $(ls /opt/appdata/plexguide/emergency) != "" ]]; then
-
-    # If not on, do not display emergency logs
-    if [[ $(cat /var/plexguide/emergency.display) == "On" ]]; then
-
-      tee <<-EOF
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⛔️  Emergency & Warning Log Generator | Visit - http://emlog.pgblitz.com
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-NOTE: This can be turned [On] or Off in Settings!
-
-EOF
-
-
 folders() {
   ansible-playbook /opt/plexguide/menu/installer/folders.yml
 }
