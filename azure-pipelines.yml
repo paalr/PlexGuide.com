@@ -6,6 +6,7 @@
 trigger:
   branches:
     include:
+      - v8.5base
       - refs/tags/v8.5base
 
 pool:
