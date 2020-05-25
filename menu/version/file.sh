@@ -18,6 +18,7 @@ mainstart() {
   pgnumber=$(cat "/var/plexguide/pg.number")
   latest=$(cat "/opt/pgstage/versions.sh" | head -n1)
   beta=$(cat /opt/pgstage/versions.sh | sed -n 2p)
+  typed=$latest
 
   tee <<-EOF
 
@@ -30,6 +31,7 @@ Prior Versions? Visit > versions.pgblitz.com
 Latest:  : $latest
 Beta      : $beta
 Installed : $pgnumber
+Valgt version : $typed
 
 [Z] Exit
 
@@ -38,7 +40,7 @@ Installed : $pgnumber
 EOF
 
   break=no
-  typed=$latest
+  
   storage=$(grep $typed /opt/pgstage/versions.sh)
 
   parttwo
