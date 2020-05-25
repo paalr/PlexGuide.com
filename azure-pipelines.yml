@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: sudo rm -rf /opt/plexguide && sudo rm -rf /opt/pgstage && sudo apt install curl -y && curl -s https://raw.githubusercontent.com/paalr/Install/v8.5/install.sh | sudo -H sh
+  displayName: 'Run a one-line script'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'pgblitz'
+
