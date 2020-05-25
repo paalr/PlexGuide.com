@@ -172,7 +172,6 @@ NOTE: This can be turned [On] or Off in Settings!
 
 EOF
 
-}
 
 folders() {
   ansible-playbook /opt/plexguide/menu/installer/folders.yml
